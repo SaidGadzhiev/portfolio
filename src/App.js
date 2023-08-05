@@ -6,6 +6,8 @@ import AboutMe from './components/AboutMe';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Header from './components/Header';
+import Particles from 'particles.js';
+import { useEffect } from 'react';
 
 function App() {
 	return (

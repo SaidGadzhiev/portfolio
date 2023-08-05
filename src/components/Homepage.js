@@ -1,12 +1,30 @@
+import Particles from 'particlesjs';
 import styled from 'styled-components';
+import { useEffect } from 'react';
 
 const Homepage = () => {
+	const particlesJS = window.particlesJS;
+
+	useEffect(() => {
+		particlesJS('particles-js', {
+			/* Customize the particles settings here */
+			selector: '.background',
+			color: '#000000',
+			sizeVariations: 0.1,
+			maxParticles: 2,
+		});
+	}, []);
+
+	const Background = styled.div`
+		width: 100vw;
+		height: 100vh;
+	`;
 	const HeroSection = styled.div`
 		position: relative;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		height: 95vh;
+		height: 90vh;
 	`;
 
 	const Title = styled.div`
@@ -15,43 +33,49 @@ const Homepage = () => {
 		align-items: center;
 		max-width: 1052px;
 		width: 100%;
-		padding: 0 16px;
 		h1 {
-			font-size: 50px;
-			text-align: right;
+			font-size: 60px;
+			text-align: left;
 			margin-bottom: 0;
-			align-self: flex-start;
 			max-width: 732px;
-			margin-left: -31px;
 			width: 100%;
+			line-height: 1;
 		}
 
 		h3 {
 			text-align: left;
-			margin-top: 0; /* Set margin-top to 0 to make the elements touch */
-			align-self: flex-end;
+			margin-top: 30px; /* Set margin-top to 0 to make the elements touch */
 		}
 	`;
 
 	const SocialLinks = styled.div`
-		position: absolute;
-		top: 50%;
-		right: 0;
-		transform: translateY(-50%); /* Center the SocialLinks vertically */
-		display: flex;
-		flex-direction: column;
-		align-items: flex-end; /* Align SocialLinks to the right */
-		a {
-			margin-bottom: 10px;
+		@media screen and (max-width: 767px) {
+			display: none;
+		}
+
+		@media screen and (min-width: 768px) {
+			position: absolute;
+			top: 50%;
+			right: 0;
+			transform: translateY(-50%); /* Center the SocialLinks vertically */
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end; /* Align SocialLinks to the right */
+			a {
+				margin-bottom: 10px;
+			}
 		}
 	`;
 
 	return (
 		<>
 			<HeroSection>
+				<Background className='background' id='particles-js' />
+
+				{/* <ParticlesBg></ParticlesBg> */}
 				<Title>
-					<h1>Crafting captivating digital experiences</h1>
-					<h3>Unleashing Creativity, One Pixel at a Time</h3>
+					<h1>Said's portfolio</h1>
+					<h3>Crafting Innovation: Where Creativity Meets Code</h3>
 				</Title>
 				<SocialLinks>
 					<a href='#'>L</a>
