@@ -14,6 +14,8 @@ const GlobalStyle = createGlobalStyle`
         padding: 30px;
         background-color: #eeeff1;
         color: #212121;
+        background-image: radial-gradient(#21212130 0.5px, transparent 1px);
+        background-size:30px 30px;
     }
 
     .background {
@@ -29,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     h3{
-        font-family: "Roboto Mono", monospace;
+        font-family: 'Montserrat', sans-serif;
     }
 
 

@@ -16,6 +16,8 @@ const Header = () => {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		border-bottom: 0.7px solid #00000054;
+		padding-bottom: 10px;
 
 		div {
 			display: flex;
