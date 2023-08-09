@@ -1,24 +1,33 @@
-import Particles from 'particlesjs';
 import styled from 'styled-components';
-import { useEffect } from 'react';
+import { Icon } from '@iconify/react';
+import { useEffect, useState } from 'react';
+import { titleWords } from '../wordsData';
 
-const Homepage = () => {
+const Homepage = ({ setHomepageActive }) => {
+	useEffect(() => {
+		setHomepageActive(true);
+		return () => {
+			setHomepageActive(false);
+		};
+	}, []);
+	// console.log(titleWords);
+
+	// titleWords.map((word) => {
+	// 	console.log(word);
+	// });
+
+	const [currentWord, setCurrentWord] = useState(0);
+	useEffect(() => {
+		const intervalId = setInterval(() => {
+			setCurrentWord((prevIndex) => (prevIndex + 1) % titleWords.length);
+		}, 4000);
+
+		return () => {
+			clearInterval(intervalId);
+		};
+	});
+
 	const particlesJS = window.particlesJS;
-
-	//code for particles in the background, removed until further update
-	// useEffect(() => {
-	// 	particlesJS('particles-js', {
-	// 		/* Customize the particles settings here */
-	// 		selector: '.background',
-	// 		color: 'black',
-	// 		sizeVariations: 3,
-	// 		connectParticles: true,
-
-	// 		maxParticles: 2,
-	// 		shape: 'line',
-	// 		size: 1,
-	// 	});
-	// }, []);
 
 	const Background = styled.div`
 		width: 100vw;
@@ -29,7 +38,7 @@ const Homepage = () => {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		height: 90vh;
+		height: 87vh;
 	`;
 
 	const Main = styled.div`
@@ -45,6 +54,23 @@ const Homepage = () => {
 			max-width: 732px;
 			width: 100%;
 			line-height: 1.2;
+
+			span {
+				animation: fadeInOut 4s infinite;
+				opacity: 0; /* Initially hide the element */
+
+				/* Additional styling, adjust as needed */
+			}
+
+			@keyframes fadeInOut {
+				0%,
+				100% {
+					opacity: 0;
+				}
+				50% {
+					opacity: 1;
+				}
+			}
 		}
 
 		h3 {
@@ -82,7 +108,7 @@ const Homepage = () => {
 			color: #eeeff1;
 			border-radius: 5px;
 			font-family: 'Montserrat', sans-serif;
-			font-weight: lighter;
+			font-weight: 500;
 			font-size: 15px;
 		}
 	`;
@@ -114,19 +140,27 @@ const Homepage = () => {
 
 				{/* <ParticlesBg></ParticlesBg> */}
 				<Main>
-					<ImageContainer>
+					{/* <ImageContainer>
 						<Pfp src='pfp.jpg'></Pfp>
-					</ImageContainer>
+					</ImageContainer> */}
 
-					<h3>Said's portfolio</h3>
-					<h1>Creating digital experiences, one line at a time.</h1>
+					{/* <h3>Said's portfolio</h3> */}
+					<h1>
+						Creating <span>{titleWords[currentWord]}</span>, one line at a time.
+					</h1>
 					<Buttons>
 						<button>About Me</button>
 						<button>Projects</button>
 					</Buttons>
 				</Main>
 				<SocialLinks>
-					<a href='#'>L</a>
+					<a
+						href='https://github.com/your-github-profile'
+						target='_blank'
+						rel='noopener noreferrer'
+					>
+						<Icon icon='devicon:github' />
+					</a>
 					<a href='#'>G</a>
 					<a href='#'>G</a>
 				</SocialLinks>

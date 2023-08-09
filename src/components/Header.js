@@ -16,8 +16,28 @@ const Header = () => {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		border-bottom: 0.7px solid #00000054;
+		border-bottom: 1px solid #21212130;
 		padding-bottom: 10px;
+		@media screen and (max-width: 767px) {
+			span {
+				color: #eeeff1;
+			}
+		}
+
+		.logo {
+			font-size: 25pt;
+
+			div {
+				line-height: 40px;
+				vertical-align: middle;
+				h3 {
+					margin-right: -10px;
+				}
+				p {
+					font-size: 18px;
+				}
+			}
+		}
 
 		div {
 			display: flex;
@@ -26,7 +46,8 @@ const Header = () => {
 		a {
 			text-decoration: none;
 			font-size: 18px;
-			color: ${isMenuOpen ? '#eeeff1' : '#212121'};
+			color: #212121;
+			font-weight: 500;
 		}
 
 		//media for mobile and tablet
@@ -59,6 +80,7 @@ const Header = () => {
 			}
 			.nav.active a {
 				margin: 0.5rem 0;
+				color: #eeeff1;
 			}
 		}
 
@@ -66,6 +88,9 @@ const Header = () => {
 		@media screen and (min-width: 768px) {
 			.hamburger {
 				display: none;
+			}
+			.nav {
+				display: inherit;
 			}
 		}
 	`;
@@ -80,14 +105,23 @@ const Header = () => {
 					</p>
 					<p>Fr</p>
 				</div> */}
-				<NavLink to='/'>Logo</NavLink>
+
+				<NavLink to='/' className='logo'>
+					<div>
+						<h3>SG</h3>
+						<p>said gadzhiev</p>
+					</div>
+				</NavLink>
 				<div className={`nav ${isMenuOpen ? 'active' : ''}`}>
 					<NavLink to='/aboutme' onClick={handleMenuToggle}>
 						About
 					</NavLink>
+					<span>/</span>
 					<NavLink to='/portfolio' onClick={handleMenuToggle}>
 						Portfolio
 					</NavLink>
+					<span>/</span>
+
 					<NavLink to='/contact' onClick={handleMenuToggle}>
 						Contact
 					</NavLink>
