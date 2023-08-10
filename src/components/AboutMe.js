@@ -1,10 +1,7 @@
 import Skills from './Skills';
 import styled from 'styled-components';
 const AboutMe = () => {
-	const Content = styled.div`
-		@media (max-width: 768px) {
-		}
-	`;
+	const Content = styled.div``;
 
 	const Technicals = styled.h1`
 		text-align: center;
@@ -20,12 +17,69 @@ const AboutMe = () => {
 		height: 80vh;
 		align-items: center;
 		justify-content: space-around;
+		@media (max-width: 500px) {
+		}
+
+		//im just having fun with css
+		.link-container {
+			border: 2px solid #212121;
+			align-items: center;
+			border-radius: 5px;
+			width: 120px;
+			height: 40px;
+			padding-top: 15px;
+			padding-left: 10px;
+			text-align: center;
+			display: inline-block;
+			color: black;
+			text-decoration: none;
+			position: relative;
+			overflow: hidden;
+			transition: transform 0.3s ease-in-out;
+			font-weight: bold;
+			font-size: 18px;
+			float: none;
+			@media (min-width: 768px) {
+				float: left;
+			}
+		}
+		.link-container::before {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			bottom: -2px;
+			left: 0;
+			transform: scaleX(0);
+			transform-origin: left;
+			transition: transform 0.3s ease-in-out;
+		}
+		.link-container:hover {
+			color: #eeeff1; /* Hover text color */
+			transform: translateX(-10px); /* Slide text to the left */
+			background-color: #212121;
+		}
+		.link-container:hover::before {
+			transform: scaleX(1);
+		}
+		.link-arrow {
+			display: inline-block;
+			margin-left: 5px; /* Adjust spacing between text and arrow */
+			opacity: 0;
+			transform: translateX(10px); /* Move arrow to the right */
+			font-size: 12px;
+			transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+		}
+		.link-container:hover .link-arrow {
+			opacity: 1;
+			transform: translateX(0);
+		}
+
+		//
 	`;
 	const About = styled.div`
-		padding: 10px;
 		text-align: center;
 		h1 {
-			width: 400px;
 			margin: 0 auto;
 			text-align: left;
 			margin-bottom: 20px;
@@ -58,7 +112,7 @@ const AboutMe = () => {
 
 		overflow: hidden;
 		border-radius: 10px;
-		@media (max-width: 768px) {
+		@media (max-width: 840px) {
 			margin-top: 40px;
 			height: 300px;
 		}
@@ -87,8 +141,10 @@ const AboutMe = () => {
 							captivate users. Passionate about crafting a dynamic online realm
 							that merges functionality with aesthetics.
 						</p>
-
-						<a href=''>Resume</a>
+						<a href='#' class='link-container'>
+							Resume
+							<span class='link-arrow'>➔</span>
+						</a>
 					</About>
 					<ImageSection>
 						<div></div>
