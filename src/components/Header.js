@@ -18,6 +18,9 @@ const Header = () => {
 		align-items: center;
 		border-bottom: 1px solid #21212130;
 		padding-bottom: 10px;
+		span {
+			color: #34c483;
+		}
 		@media screen and (max-width: 767px) {
 			span {
 				color: #eeeff1;
@@ -76,7 +79,8 @@ const Header = () => {
 			}
 			.nav.active {
 				display: inherit;
-				z-index: 1;
+				z-index: 2;
+				position: fixed;
 			}
 			.nav.active a {
 				margin: 0.5rem 0;
@@ -118,7 +122,7 @@ const Header = () => {
 					</NavLink>
 					<span>/</span>
 					<NavLink to='/portfolio' onClick={handleMenuToggle}>
-						Portfolio
+						Projects
 					</NavLink>
 					<span>/</span>
 

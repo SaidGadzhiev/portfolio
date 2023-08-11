@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Homepage from './components/Homepage';
 import AboutMe from './components/AboutMe';
-import Portfolio from './components/Portfolio';
+import Portfolio from './components/Projects';
 import Contact from './components/Contact';
 import Header from './components/Header';
 import { useState } from 'react';

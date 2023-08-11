@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Icon } from '@iconify/react';
 import { useEffect, useState } from 'react';
 import { titleWords } from '../wordsData';
+import AboutMe from './AboutMe';
 
 const Homepage = ({ setHomepageActive }) => {
 	useEffect(() => {
@@ -58,7 +59,7 @@ const Homepage = ({ setHomepageActive }) => {
 			span {
 				animation: fadeInOut 4s infinite;
 				opacity: 0; /* Initially hide the element */
-
+				color: #34c483;
 				/* Additional styling, adjust as needed */
 			}
 
@@ -135,16 +136,7 @@ const Homepage = ({ setHomepageActive }) => {
 	return (
 		<>
 			<HeroSection>
-				{/* background animated particles, removed until further update */}
-				{/* <Background className='background' id='particles-js' /> */}
-
-				{/* <ParticlesBg></ParticlesBg> */}
 				<Main>
-					{/* <ImageContainer>
-						<Pfp src='pfp.jpg'></Pfp>
-					</ImageContainer> */}
-
-					{/* <h3>Said's portfolio</h3> */}
 					<h1>
 						Creating <span>{titleWords[currentWord]}</span>, one line at a time.
 					</h1>

@@ -6,8 +6,8 @@ const AboutMe = () => {
 	const Technicals = styled.h1`
 		text-align: center;
 		margin-bottom: 30px;
-		@media (max-width: 768px) {
-			margin-top: 150px;
+		@media (max-width: 700px) {
+			margin-top: 230px;
 		}
 	`;
 	const AboutSection = styled.div`
@@ -74,7 +74,6 @@ const AboutMe = () => {
 			opacity: 1;
 			transform: translateX(0);
 		}
-
 		//
 	`;
 	const About = styled.div`
@@ -107,8 +106,8 @@ const AboutMe = () => {
 	`;
 
 	const ImageSection = styled.div`
-		width: 300px; /* Set the desired width */
-		height: 500px; /* Set the desired height */
+		width: 300px;
+		height: 500px;
 
 		overflow: hidden;
 		border-radius: 10px;
@@ -118,11 +117,11 @@ const AboutMe = () => {
 		}
 
 		img {
-			width: 200%; /* Enlarge the image's width */
-			height: 100%; /* Maintain the container's height */
+			width: 200%;
+			height: 100%;
 			object-fit: cover;
-			transform: translateX(-50%); /* Move the image horizontally */
-			position: relative; /* Needed for transform */
+			transform: translateX(-50%);
+			position: relative;
 			left: 50%;
 		}
 	`;

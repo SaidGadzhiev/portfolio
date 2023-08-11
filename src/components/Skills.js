@@ -6,13 +6,13 @@ import {
 	Navigation,
 	Pagination,
 	Autoplay,
-	EffectCoverflow,
 	EffectCards,
+	FreeMode,
 } from 'swiper/modules';
 import styled from 'styled-components';
-
 import 'swiper/css';
 import 'swiper/css/effect-cards';
+import 'swiper/css/free-mode';
 
 const Skills = () => {
 	Object.entries(skills).map((skill) => {
@@ -25,12 +25,12 @@ const Skills = () => {
 
 	console.log(Object.entries(skills).length);
 	useEffect(() => {
-		Swiper.use([Navigation, Pagination, Autoplay, EffectCoverflow]);
+		Swiper.use([Navigation, Pagination, Autoplay, FreeMode]);
 		const swiper = new Swiper('.swiper', {
-			// slidesPerView: Object.entries(skills).length,
 			slidesPerView: 2,
 			speed: isMobile ? 0 : 5000,
 			spaceBetween: 10,
+			freeMode: !isMobile,
 			breakpoints: {
 				500: {
 					slidesPerView: 2,
@@ -45,40 +45,21 @@ const Skills = () => {
 					spaceBetween: 30,
 				},
 			},
-			// initialSlide: 1,
-			// navigation: {
-			// 	nextEl: '.swiper-button-next',
-			// 	prevEl: '.swiper-button-prev',
-			// },
-
 			autoplay: {
 				delay: 0,
 				disableOnInteraction: false,
 			},
 			loop: true,
-
 			effect: 'cards',
-			modules: isMobile ? [EffectCards] : [Pagination],
-			cardsEffect: {
-				// perSlideOffset: 20,
-				// perSlideRotate: 2,
-			},
-
-			// Enable infinite loop
-			// effect: 'coverflow',
-			// coverflowEffect: {
-			// 	rotate: 0,
-			// 	slideShadows: false,
-			// },
+			modules: isMobile ? [EffectCards] : [Pagination, FreeMode],
+			cardsEffect: {},
 		});
 	}, [isMobile]);
-	const AllSkills = styled.div`
-		/* width: 1920px;
-		width: 100%; */
-		/* height: auto; */
-		overflow: visible;
 
+	const AllSkills = styled.div`
+		overflow: visible;
 		margin-bottom: 20px;
+
 		@media (max-width: 500px) {
 			overflow: hidden;
 			width: 390px;
@@ -92,25 +73,24 @@ const Skills = () => {
 			margin-left: 0;
 			margin: 0 auto;
 			width: 500px;
-
 			.swiper-wrapper {
 				margin: 0 auto;
 				width: 300px;
 			}
 		}
 	`;
+
 	const Slider = styled.div`
 		background-color: #212121;
 		color: #eeeff1;
 		border-radius: 10px;
 		text-align: center;
-		/* width: 500px; */
-
 		height: 350px;
 		cursor: grab;
 		text-align: left;
 		line-height: 1.6;
 		overflow: visible;
+
 		&:active {
 			cursor: grabbing;
 		}
