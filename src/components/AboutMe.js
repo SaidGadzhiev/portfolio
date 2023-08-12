@@ -16,7 +16,7 @@ const AboutMe = () => {
 		padding: 20px;
 		height: 80vh;
 		align-items: center;
-		justify-content: space-around;
+		justify-content: space-evenly;
 		@media (max-width: 500px) {
 		}
 
@@ -55,9 +55,10 @@ const AboutMe = () => {
 			transition: transform 0.3s ease-in-out;
 		}
 		.link-container:hover {
-			color: #eeeff1; /* Hover text color */
+			color: #212121; /* Hover text color */
 			transform: translateX(-10px); /* Slide text to the left */
-			background-color: #212121;
+			background-color: #34c483;
+			border: #34c483 2px solid;
 		}
 		.link-container:hover::before {
 			transform: scaleX(1);
@@ -131,14 +132,14 @@ const AboutMe = () => {
 			<Content>
 				<AboutSection>
 					<About>
-						<h1>AboutMe</h1>
+						<h1>Said Gadzhiev</h1>
 						<p>
-							Aspiring web developer and designer, embarking on an exciting
-							journey into the world of web creation. Eager to translate
-							imagination into captivating digital experiences. Committed to
-							learning, growing, and crafting innovative solutions that
-							captivate users. Passionate about crafting a dynamic online realm
-							that merges functionality with aesthetics.
+							Web developer and designer, embarking on an exciting journey into
+							the world of web creation. Eager to translate imagination into
+							captivating digital experiences. Committed to learning, growing,
+							and crafting innovative solutions that captivate users. Passionate
+							about crafting a dynamic online realm that merges functionality
+							with aesthetics.
 						</p>
 						<a href='#' class='link-container'>
 							Resume

@@ -123,6 +123,13 @@ const Skills = () => {
 		@media (max-width: 715px) {
 			height: 400px;
 		}
+		&:hover {
+			background-color: #34c483;
+			color: #212121;
+			a {
+				color: #212121;
+			}
+		}
 	`;
 	return (
 		<>

@@ -152,9 +152,10 @@ const Projects = () => {
 			transition: transform 0.3s ease-in-out;
 		}
 		.link-container:hover {
-			color: #eeeff1; /* Hover text color */
+			color: #212121; /* Hover text color */
 			transform: translateX(-10px); /* Slide text to the left */
-			background-color: #212121;
+			background-color: #34c483;
+			border: #34c483 2px solid;
 		}
 		.link-container:hover::before {
 			transform: scaleX(1);

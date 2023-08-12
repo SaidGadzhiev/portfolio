@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Icon } from '@iconify/react';
 import { useEffect, useState } from 'react';
 import { titleWords } from '../wordsData';
-import AboutMe from './AboutMe';
+import { Link } from 'react-router-dom';
 
 const Homepage = ({ setHomepageActive }) => {
 	useEffect(() => {
@@ -11,11 +11,6 @@ const Homepage = ({ setHomepageActive }) => {
 			setHomepageActive(false);
 		};
 	}, []);
-	// console.log(titleWords);
-
-	// titleWords.map((word) => {
-	// 	console.log(word);
-	// });
 
 	const [currentWord, setCurrentWord] = useState(0);
 	useEffect(() => {
@@ -27,8 +22,6 @@ const Homepage = ({ setHomepageActive }) => {
 			clearInterval(intervalId);
 		};
 	});
-
-	const particlesJS = window.particlesJS;
 
 	const Background = styled.div`
 		width: 100vw;
@@ -58,9 +51,8 @@ const Homepage = ({ setHomepageActive }) => {
 
 			span {
 				animation: fadeInOut 4s infinite;
-				opacity: 0; /* Initially hide the element */
+				opacity: 0;
 				color: #34c483;
-				/* Additional styling, adjust as needed */
 			}
 
 			@keyframes fadeInOut {
@@ -96,21 +88,63 @@ const Homepage = ({ setHomepageActive }) => {
 	`;
 
 	const Buttons = styled.div`
-		width: 100%;
 		text-align: center;
 		margin-top: 70px;
 
-		button {
-			width: 100px;
-			height: 50px;
-			margin: 20px;
-			border: solid 1px gray;
-			background-color: #212121;
-			color: #eeeff1;
+		.link-container {
+			margin-right: 20px;
+			border: 2px solid #212121;
+			align-items: center;
 			border-radius: 5px;
-			font-family: 'Montserrat', sans-serif;
-			font-weight: 500;
-			font-size: 15px;
+			width: 120px;
+			height: 40px;
+			padding-top: 15px;
+			padding-left: 10px;
+			text-align: center;
+			display: inline-block;
+			color: black;
+			text-decoration: none;
+			position: relative;
+			overflow: hidden;
+			transition: transform 0.3s ease-in-out;
+			font-weight: bold;
+			font-size: 18px;
+			float: none;
+			@media (min-width: 768px) {
+				float: left;
+			}
+		}
+		.link-container::before {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			bottom: -2px;
+			left: 0;
+			transform: scaleX(0);
+			transform-origin: left;
+			transition: transform 0.3s ease-in-out;
+		}
+		.link-container:hover {
+			color: #212121;
+			transform: translateX(-10px);
+			background-color: #34c483;
+			border: #34c483 2px solid;
+		}
+		.link-container:hover::before {
+			transform: scaleX(1);
+		}
+		.link-arrow {
+			display: inline-block;
+			margin-left: 5px;
+			opacity: 0;
+			transform: translateX(10px);
+			font-size: 12px;
+			transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+		}
+		.link-container:hover .link-arrow {
+			opacity: 1;
+			transform: translateX(0);
 		}
 	`;
 
@@ -141,8 +175,14 @@ const Homepage = ({ setHomepageActive }) => {
 						Creating <span>{titleWords[currentWord]}</span>, one line at a time.
 					</h1>
 					<Buttons>
-						<button>About Me</button>
-						<button>Projects</button>
+						<Link to='/aboutme' class='link-container'>
+							About Me
+							<span class='link-arrow'>➔</span>
+						</Link>{' '}
+						<Link to='/projects' class='link-container'>
+							Projects
+							<span class='link-arrow'>➔</span>
+						</Link>
 					</Buttons>
 				</Main>
 				<SocialLinks>

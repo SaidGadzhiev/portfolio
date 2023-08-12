@@ -121,7 +121,7 @@ const Header = () => {
 						About
 					</NavLink>
 					<span>/</span>
-					<NavLink to='/portfolio' onClick={handleMenuToggle}>
+					<NavLink to='/projects' onClick={handleMenuToggle}>
 						Projects
 					</NavLink>
 					<span>/</span>
