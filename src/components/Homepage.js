@@ -75,13 +75,13 @@ const Homepage = ({ setHomepageActive }) => {
 					Creating <span>{titleWords[currentWord]}</span>, one line at a time.
 				</h1>
 				<Buttons>
-					<Link to='/aboutme' class='link-container'>
+					<Link to='/aboutme' className='link-container'>
 						About Me
-						<span class='link-arrow'>➔</span>
+						<span className='link-arrow'>➔</span>
 					</Link>{' '}
 					<Link to='/projects' class='link-container'>
 						Projects
-						<span class='link-arrow'>➔</span>
+						<span className='link-arrow'>➔</span>
 					</Link>
 				</Buttons>
 			</HeroSection>

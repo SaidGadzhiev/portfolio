@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
 						: 'none'};
         background-size:30px 30px;
         overflow-x: hidden;
-
+		transition: 0.5s ease-in-out;
     }
 
     

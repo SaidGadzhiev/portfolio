@@ -6,7 +6,7 @@ const Contact = () => {
 		max-width: 100%;
 		margin: 0 auto;
 		height: 51.5vh;
-		margin-bottom: 79px;
+		margin-bottom: 120px;
 
 		@media screen and (min-width: 768px) {
 			margin-bottom: 0px;

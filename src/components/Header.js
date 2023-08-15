@@ -52,7 +52,7 @@ const Header = (props) => {
 		}
 
 		////
-
+		// this css is not active, it is there for a button in construction
 		.toggle-switch {
 			position: relative;
 			width: 68px;
@@ -102,7 +102,6 @@ const Header = (props) => {
 			background-color: black;
 			box-shadow: none;
 		}
-
 		///////
 
 		div {
@@ -121,6 +120,7 @@ const Header = (props) => {
 			.hamburger {
 				cursor: pointer;
 				z-index: 2;
+				color: #34c483;
 			}
 			.hamburger.active {
 				color: #eeeff1;
@@ -163,59 +163,38 @@ const Header = (props) => {
 
 		.toggleButton {
 			width: 60px;
-			height: 30px;
-			background-color: #ccc;
+			height: 25px;
+			background-color: #eeeff1;
+			border: 1px solid #212121;
+
 			border-radius: 15px;
 			position: relative;
 			cursor: pointer;
 		}
 		.circle {
-			width: 24px;
-			height: 24px;
-			background-color: #3498db;
+			width: 19px;
+			height: 19px;
+			background-color: #34c483;
 			border-radius: 50%;
 			position: absolute;
 			top: 3px;
-			left: 3px;
+			left: 6px;
 			transition: transform 0.3s ease, background-color 0.3s ease; /* Use transform for smoother animation */
 		}
-		.active .circle {
+
+		.theme-on {
+			background-color: #eeeff1;
+		}
+		.theme-on .circle {
+			transition: 0.5s ease-in-out;
 			transform: translateX(30px);
-			background-color: #27ae60;
+			background-color: #34c483;
 		}
 	`;
-
-	// const Toggle = styled.div`
-	// 	width: 60px;
-	// 	height: 30px;
-	// 	background-color: #ccc;
-	// 	border-radius: 15px;
-	// 	position: relative;
-	// 	cursor: pointer;
-
-	// 	.circle {
-	// 		width: 24px;
-	// 		height: 24px;
-	// 		background-color: #3498db;
-	// 		border-radius: 50%;
-	// 		position: absolute;
-	// 		top: 3px;
-	// 		left: 3px;
-	// 		transition: left 0.3s ease, background-color 0.3s ease;
-	// 	}
-	// `;
 
 	return (
 		<>
 			<Content>
-				{/* <div>
-					<p>
-						{' '}
-						<strong>En</strong>
-					</p>
-					<p>Fr</p>
-				</div> */}
-
 				<NavLink to='/' className='logo'>
 					<div>
 						<h1>SG</h1>
@@ -223,20 +202,20 @@ const Header = (props) => {
 					</div>
 				</NavLink>
 				<div className={`nav ${isMenuOpen ? 'active' : ''}`}>
-					<div className='toggle-switch'>
+					{/* <div className='toggle-switch' onClick={toggleTheme}>
 						<label>
 							<input type='checkbox'></input>
 							<span class='slider'></span>
 						</label>
-					</div>
+					</div> */}
 
 					<div
 						onClick={toggleTheme}
-						className={`toggleButton ${isDarkTheme ? 'active' : ''}`}
-						// onClick={toggleButton}
+						className={`toggleButton ${isDarkTheme ? 'theme-on' : ''}`}
 					>
 						<div className='circle'></div>
 					</div>
+
 					<NavLink to='/aboutme' onClick={handleMenuToggle}>
 						About
 					</NavLink>

@@ -5,12 +5,13 @@ import Homepage from './components/Homepage';
 import AboutMe from './components/AboutMe';
 import Contact from './components/Contact';
 import Header from './components/Header';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import GlobalStyle from './components/GlobalStyle';
 import Footer from './components/Footer';
 import Projects from './components/Projects';
 import { useTheme } from './components/ThemeContext';
+import { ThemeProvider } from './components/ThemeContext';
 
 function App() {
 	const [homepageActive, setHomepageActive] = useState(false);
