@@ -5,6 +5,12 @@ const Contact = () => {
 		width: 450px;
 		max-width: 100%;
 		margin: 0 auto;
+		height: 51.5vh;
+		margin-bottom: 79px;
+
+		@media screen and (min-width: 768px) {
+			margin-bottom: 0px;
+		}
 
 		@media screen and (min-width: 1000px) {
 			width: 1000px;
@@ -75,62 +81,12 @@ const Contact = () => {
 				text-align: center;
 
 				#submit {
+					cursor: pointer;
+					height: 50px;
+					padding-top: 0px;
 				}
 			}
 		}
-		//buttons styling
-		.link-container {
-			border: 2px solid #212121;
-			align-items: center;
-			border-radius: 5px;
-			width: 120px;
-			height: 50px;
-			padding-left: 10px;
-			text-align: center;
-			display: inline-block;
-			color: black;
-			text-decoration: none;
-			position: relative;
-			overflow: hidden;
-			transition: transform 0.3s ease-in-out;
-			font-weight: bold;
-			font-size: 18px;
-			background-color: #eeeff1;
-		}
-		.link-container::before {
-			content: '';
-			position: absolute;
-			width: 100%;
-			height: 2px;
-			bottom: -2px;
-			left: 0;
-			transform: scaleX(0);
-			transform-origin: left;
-			transition: transform 0.3s ease-in-out;
-		}
-		.link-container:hover {
-			color: #212121; /* Hover text color */
-			transform: translateX(-10px); /* Slide text to the left */
-			background-color: #34c483;
-			border: #34c483 2px solid;
-			cursor: pointer;
-		}
-		.link-container:hover::before {
-			transform: scaleX(1);
-		}
-		.link-arrow {
-			display: inline-block;
-			margin-left: 5px; /* Adjust spacing between text and arrow */
-			opacity: 0;
-			transform: translateX(10px); /* Move arrow to the right */
-			font-size: 12px;
-			transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-		}
-		.link-container:hover .link-arrow {
-			opacity: 1;
-			transform: translateX(0);
-		}
-		//
 	`;
 
 	const Title = styled.h1``;

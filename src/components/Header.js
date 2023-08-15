@@ -1,18 +1,27 @@
 import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { useTheme } from './ThemeContext';
+import { ThemeProvider } from './ThemeContext';
 
-const Header = () => {
+const Header = (props) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const { isDarkTheme, toggleTheme } = useTheme();
+	// const { toggleTheme } = useContext(ThemeProvider);
 
 	const handleMenuToggle = () => {
 		console.log(isMenuOpen);
 		setIsMenuOpen(!isMenuOpen);
 	};
 
-	const Header = styled.nav`
+	const handleToggleTheme = () => {
+		console.log('hello');
+		console.log(isDarkTheme);
+	};
+
+	const Content = styled.nav`
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -42,6 +51,60 @@ const Header = () => {
 			}
 		}
 
+		////
+
+		.toggle-switch {
+			position: relative;
+			width: 68px;
+		}
+
+		label {
+			/* position: absolute; */
+			width: 100%;
+			height: 37px;
+			background-color: black;
+			border-radius: 50px;
+			cursor: pointer;
+		}
+
+		input {
+			position: absolute;
+			display: none;
+		}
+
+		.slider {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			border-radius: 50px;
+			transition: 0.3s;
+		}
+
+		input:checked ~ .slider {
+			background-color: white;
+		}
+
+		.slider::before {
+			content: '';
+			position: absolute;
+			top: 8px;
+			left: 16px;
+			width: 20px;
+			height: 20px;
+			border-radius: 59%;
+			box-shadow: inset 7px -4px 0px 0px white;
+			background-color: black;
+			transition: 0.3s;
+		}
+
+		input:checked ~ .slider::before {
+			transform: translateX(20px);
+			background-color: black;
+			box-shadow: none;
+		}
+
+		///////
+
 		div {
 			display: flex;
 			gap: 25px;
@@ -49,7 +112,7 @@ const Header = () => {
 		a {
 			text-decoration: none;
 			font-size: 18px;
-			color: #212121;
+			/* color: #212121; */
 			font-weight: 500;
 		}
 
@@ -97,11 +160,54 @@ const Header = () => {
 				display: inherit;
 			}
 		}
+
+		.toggleButton {
+			width: 60px;
+			height: 30px;
+			background-color: #ccc;
+			border-radius: 15px;
+			position: relative;
+			cursor: pointer;
+		}
+		.circle {
+			width: 24px;
+			height: 24px;
+			background-color: #3498db;
+			border-radius: 50%;
+			position: absolute;
+			top: 3px;
+			left: 3px;
+			transition: transform 0.3s ease, background-color 0.3s ease; /* Use transform for smoother animation */
+		}
+		.active .circle {
+			transform: translateX(30px);
+			background-color: #27ae60;
+		}
 	`;
+
+	// const Toggle = styled.div`
+	// 	width: 60px;
+	// 	height: 30px;
+	// 	background-color: #ccc;
+	// 	border-radius: 15px;
+	// 	position: relative;
+	// 	cursor: pointer;
+
+	// 	.circle {
+	// 		width: 24px;
+	// 		height: 24px;
+	// 		background-color: #3498db;
+	// 		border-radius: 50%;
+	// 		position: absolute;
+	// 		top: 3px;
+	// 		left: 3px;
+	// 		transition: left 0.3s ease, background-color 0.3s ease;
+	// 	}
+	// `;
 
 	return (
 		<>
-			<Header>
+			<Content>
 				{/* <div>
 					<p>
 						{' '}
@@ -112,11 +218,25 @@ const Header = () => {
 
 				<NavLink to='/' className='logo'>
 					<div>
-						<h3>SG</h3>
+						<h1>SG</h1>
 						<p>said gadzhiev</p>
 					</div>
 				</NavLink>
 				<div className={`nav ${isMenuOpen ? 'active' : ''}`}>
+					<div className='toggle-switch'>
+						<label>
+							<input type='checkbox'></input>
+							<span class='slider'></span>
+						</label>
+					</div>
+
+					<div
+						onClick={toggleTheme}
+						className={`toggleButton ${isDarkTheme ? 'active' : ''}`}
+						// onClick={toggleButton}
+					>
+						<div className='circle'></div>
+					</div>
 					<NavLink to='/aboutme' onClick={handleMenuToggle}>
 						About
 					</NavLink>
@@ -137,7 +257,7 @@ const Header = () => {
 				>
 					<FontAwesomeIcon icon={faBars} />
 				</div>
-			</Header>
+			</Content>
 		</>
 	);
 };

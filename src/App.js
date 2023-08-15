@@ -10,14 +10,19 @@ import { useState } from 'react';
 import GlobalStyle from './components/GlobalStyle';
 import Footer from './components/Footer';
 import Projects from './components/Projects';
+import { useTheme } from './components/ThemeContext';
 
 function App() {
 	const [homepageActive, setHomepageActive] = useState(false);
+	const { isDarkTheme } = useTheme();
 
 	return (
 		<>
 			<Router>
-				<GlobalStyle homepageActive={homepageActive} />
+				<GlobalStyle
+					homepageActive={homepageActive}
+					isDarkTheme={isDarkTheme}
+				/>
 				<Header />
 
 				<Routes>

@@ -48,13 +48,13 @@ const Footer = () => {
 				)
 				17.5px 17.5px,
 			linear-gradient(
-					#21212130 1.4000000000000001px,
+					#2121211c 1.4000000000000001px,
 					transparent 1.4000000000000001px
 				)
 				0 -0.7000000000000001px,
 			linear-gradient(
 					90deg,
-					#21212130 1.4000000000000001px,
+					#2121211c 1.4000000000000001px,
 					#34c483 1.4000000000000001px
 				) -0.7000000000000001px 0;
 
@@ -67,6 +67,10 @@ const Footer = () => {
 		width: 100vw;
 		margin-top: 100px;
 		text-align: center;
+		@media screen and (min-width: 767px) and (max-width: 1000px) {
+			margin-top: 216px;
+		}
+
 		@media screen and (min-width: 767px) {
 			height: 98px;
 			width: 100%;
@@ -92,6 +96,10 @@ const Footer = () => {
 				}
 			}
 
+			h1 {
+				color: #212121;
+			}
+
 			h3 {
 				font-size: 25pt;
 			}
@@ -99,6 +107,10 @@ const Footer = () => {
 				font-size: 12pt;
 				font-weight: bold;
 			}
+		}
+
+		div p {
+			color: #212121;
 		}
 	`;
 
@@ -118,7 +130,7 @@ const Footer = () => {
 				<nav>
 					<NavLink to='/'>
 						<div>
-							<h3>SG</h3>
+							<h1>SG</h1>
 							<p>said gadzhiev</p>
 						</div>
 					</NavLink>

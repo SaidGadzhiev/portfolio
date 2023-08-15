@@ -13,6 +13,7 @@ import styled from 'styled-components';
 import 'swiper/css';
 import 'swiper/css/effect-cards';
 import 'swiper/css/free-mode';
+import { useTheme } from './ThemeContext';
 
 const Skills = () => {
 	Object.entries(skills).map((skill) => {
@@ -20,7 +21,8 @@ const Skills = () => {
 	});
 
 	const isMobile = useMobileSize();
-
+	const { isDarkTheme } = useTheme();
+	console.log(isDarkTheme);
 	console.log(isMobile);
 
 	console.log(Object.entries(skills).length);
@@ -82,8 +84,10 @@ const Skills = () => {
 
 	const Slider = styled.div`
 		background-color: #212121;
-		color: #eeeff1;
+		color: #eeeff1 !important;
 		border-radius: 10px;
+		border: ${({ isDarkTheme }) =>
+			isDarkTheme ? '2px solid #34c483' : 'none'};
 		text-align: center;
 		height: 350px;
 		cursor: grab;
@@ -98,12 +102,16 @@ const Skills = () => {
 		position: relative;
 
 		h1 {
+			color: #eeeff1;
 			text-transform: uppercase;
 			margin-bottom: 20px;
 		}
 		h3 {
 			margin-bottom: 40px;
 			font-family: 'Roboto-mono', monospace;
+		}
+		p {
+			color: #eeeff1;
 		}
 
 		a {
@@ -125,8 +133,10 @@ const Skills = () => {
 		}
 		&:hover {
 			background-color: #34c483;
-			color: #212121;
-			a {
+			h1,
+			p,
+			a,
+			h3 {
 				color: #212121;
 			}
 		}
@@ -138,7 +148,11 @@ const Skills = () => {
 					{Object.entries(skills).map((skill, index) => {
 						console.log(skill);
 						return (
-							<Slider className='swiper-slide' key={index}>
+							<Slider
+								className='swiper-slide'
+								key={index}
+								isDarkTheme={isDarkTheme}
+							>
 								<h1>{skill[1].id}</h1>
 								<h3>{skill[1].subtitle}</h3>
 								<p>{skill[1].description}</p>
