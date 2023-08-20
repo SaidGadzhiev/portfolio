@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import { titleWords } from '../wordsData';
 import { Link } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+import InitialTransition from './InitialTransition';
 
 const Homepage = ({ setHomepageActive }) => {
 	useEffect(() => {
@@ -70,21 +73,24 @@ const Homepage = ({ setHomepageActive }) => {
 
 	return (
 		<>
-			<HeroSection>
-				<h1>
-					Creating <span>{titleWords[currentWord]}</span>, one line at a time.
-				</h1>
-				<Buttons>
-					<Link to='/aboutme' className='link-container'>
-						About Me
-						<span className='link-arrow'>➔</span>
-					</Link>{' '}
-					<Link to='/projects' class='link-container'>
-						Projects
-						<span className='link-arrow'>➔</span>
-					</Link>
-				</Buttons>
-			</HeroSection>
+			<AnimatePresence>
+				<InitialTransition />
+				<HeroSection>
+					<h1>
+						Creating <span>{titleWords[currentWord]}</span>, one line at a time.
+					</h1>
+					<Buttons>
+						<Link to='/aboutme' className='link-container'>
+							About Me
+							<span className='link-arrow'>➔</span>
+						</Link>{' '}
+						<Link to='/projects' class='link-container'>
+							Projects
+							<span className='link-arrow'>➔</span>
+						</Link>
+					</Buttons>
+				</HeroSection>
+			</AnimatePresence>
 		</>
 	);
 };

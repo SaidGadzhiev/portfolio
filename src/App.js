@@ -12,6 +12,9 @@ import Footer from './components/Footer';
 import Projects from './components/Projects';
 import { useTheme } from './components/ThemeContext';
 import { ThemeProvider } from './components/ThemeContext';
+import { AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+import InitialTransition from './components/InitialTransition';
 
 function App() {
 	const [homepageActive, setHomepageActive] = useState(false);
