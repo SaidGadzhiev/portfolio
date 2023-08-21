@@ -15,8 +15,6 @@ const Homepage = ({ setHomepageActive }) => {
 		};
 	}, []);
 
-	console.log('hello');
-
 	//rotating a different word everytime
 	const [currentWord, setCurrentWord] = useState(0);
 	useEffect(() => {
