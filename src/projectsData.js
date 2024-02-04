@@ -1,13 +1,21 @@
 export const projects = {
 	yokitree: {
-		id: 'yoki tree',
-		subtitle: 'Identify, care, and learn about plants.',
+		id: 'Antventory',
+		subtitle: 'Efficient equipment management.',
 		description:
-			'Discover, identify, and care for a wide range of plants with our user-friendly app. Get plant recommendations, care tips, and connect with a thriving gardening community. Enhance your green thumb!',
+			'Incorporating a MERN stack architecture, Antventory has revolutionized equipment management, delivering substantial time savings for administrators and students alike. The admin interface enables quick updates, cutting inventory management time by 30%, empowering staff to focus on critical tasks and boosting overall productivity. For users, the app streamlines the borrowing process, reducing search and checkout time by 40%.',
 		url: 'https://www.google.com/',
-		urlGitHub: 'https://www.google.com/',
+		urlGitHub: 'https://github.com/SaidGadzhiev/fullstack-project',
 		image: '/assets/yoki-tree.png',
-		skills: ['react', 'javascript', 'css', 'html', 'adobeXd'],
+		skills: [
+			'react',
+			'javascript',
+			'css',
+			'html',
+			'adobeXd',
+			'node.js',
+			'mongo DB',
+		],
 	},
 	yokitree1: {
 		id: 'Steam9',
